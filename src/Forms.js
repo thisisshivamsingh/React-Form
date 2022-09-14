@@ -1,12 +1,15 @@
 import React from "react";
 
 const Forms = () => {
-  const getData = () => {
-    console.log("Function called");
+  const getData = (e) => {
+    console.log(e.target.innerHTML);
   };
   return (
     <div>
-      <button onClick={() => getData()}>Get Data</button>
+      <div onClick={getData}>
+        <h1>Test</h1>
+        Get Data
+      </div>
     </div>
   );
 };
