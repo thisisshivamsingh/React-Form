@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Forms = () => {
+  const [h, setH] = useState("Default");
   const getData = (e) => {
-    console.log(e.target.innerHTML);
+    setH(e.target.value);
+    console.log(e.target.value);
   };
   return (
     <div>
-      <div onClick={getData}>
-        <h1>Test</h1>
-        Get Data
-      </div>
+      <h1>{h}</h1>
+      <input onChange={getData} type="text" />
     </div>
   );
 };
