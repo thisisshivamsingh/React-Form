@@ -4,13 +4,19 @@ import { useState } from "react";
 const Forms = () => {
   const [persInfo, setPersInfo] = useState({
     firstName: "",
-    lastName: "",
+    lastName: true,
     mobile: "",
   });
 
   const inputChangeHandler = (e) => {
     setPersInfo((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  const inputCheckedHandler = (e) => {
+    setPersInfo((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.checked };
     });
   };
 
@@ -30,10 +36,10 @@ const Forms = () => {
           />
           <br />
           <input
-            type="text"
+            type="checkbox"
             placeholder="Last Name"
             name="lastName"
-            onChange={inputChangeHandler}
+            onChange={inputCheckedHandler}
           />
           <br />
           <input
