@@ -2,31 +2,34 @@ import React from "react";
 import { useState } from "react";
 
 const Forms = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [data, setData] = useState("data");
+  const [persInfo, setPersInfo] = useState({
+    firstName: "",
+    lastName: "",
+    mobile: "",
+  });
 
   const firstNameChangeHandler = (e) => {
-    setFirstName(e.target.value);
+    setPersInfo({ ...persInfo, firstName: e.target.value });
   };
 
   const lastNameChangeHandler = (e) => {
-    setLastName(e.target.value);
+    setPersInfo({ ...persInfo, lastName: e.target.value });
   };
 
   const mobileChangeHandler = (e) => {
-    setMobile(e.target.value);
+    setPersInfo({ ...persInfo, mobile: e.target.value });
   };
 
-  const showData = (e) => {
-    e.preventDefault();
-    setData(firstName + "," + lastName + "," + mobile);
-  };
+  // const showData = (e) => {
+  //   e.preventDefault();
+  //   setData(firstName + "," + lastName + "," + mobile);
+  // };
+
   return (
     <div>
       <div>
-        <form onSubmit={showData}>
+        <form>
+          {/* <form onSubmit={showData}> */}
           <input
             type="text"
             placeholder="First Name"
@@ -47,7 +50,7 @@ const Forms = () => {
           <br />
           <input type="submit" value="Submit" />
         </form>
-        {data}
+        {JSON.stringify(persInfo)}
       </div>
     </div>
   );
