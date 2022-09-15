@@ -9,19 +9,19 @@ const Forms = () => {
   });
 
   const inputChangeHandler = (e) => {
-    setPersInfo({ ...persInfo, [e.target.name]: e.target.value });
+    setPersInfo((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
   };
 
-  // const showData = (e) => {
-  //   e.preventDefault();
-  //   setData(firstName + "," + lastName + "," + mobile);
-  // };
+  const showData = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div>
       <div>
-        <form>
-          {/* <form onSubmit={showData}> */}
+        <form onSubmit={showData}>
           <input
             type="text"
             placeholder="First Name"
