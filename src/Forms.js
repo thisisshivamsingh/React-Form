@@ -8,16 +8,8 @@ const Forms = () => {
     mobile: "",
   });
 
-  const firstNameChangeHandler = (e) => {
-    setPersInfo({ ...persInfo, firstName: e.target.value });
-  };
-
-  const lastNameChangeHandler = (e) => {
-    setPersInfo({ ...persInfo, lastName: e.target.value });
-  };
-
-  const mobileChangeHandler = (e) => {
-    setPersInfo({ ...persInfo, mobile: e.target.value });
+  const inputChangeHandler = (e) => {
+    setPersInfo({ ...persInfo, [e.target.name]: e.target.value });
   };
 
   // const showData = (e) => {
@@ -33,19 +25,22 @@ const Forms = () => {
           <input
             type="text"
             placeholder="First Name"
-            onChange={firstNameChangeHandler}
+            name="firstName"
+            onChange={inputChangeHandler}
           />
           <br />
           <input
             type="text"
             placeholder="Last Name"
-            onChange={lastNameChangeHandler}
+            name="lastName"
+            onChange={inputChangeHandler}
           />
           <br />
           <input
             type="text"
             placeholder="Mobile"
-            onChange={mobileChangeHandler}
+            name="mobile"
+            onChange={inputChangeHandler}
           />
           <br />
           <input type="submit" value="Submit" />
